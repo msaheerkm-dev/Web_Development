@@ -1,0 +1,10 @@
+{% for mov in movies%}
+<h1>title : {{mov.title | upper}}</h1>
+<p>summary : {{mov.summary | default:"no data available"}}</p>
+<h4>year : {{mov.year}}</h4>
+{% if mov.success %}
+<p>movie was successful at that time</p>
+{% endif %}
+{% endfor %}
+
+
