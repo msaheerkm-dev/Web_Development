@@ -1,0 +1,25 @@
+<section>
+  <div class="container mt-5">
+    <div class="row">
+      {{#each stations}}
+      <div class="col-md-3 p-3">
+        <div class="card shadow-lg btn-hover" style="width: 16rem; height: 22rem; background: rgba(0, 0, 0, 0.05); border-radius: 10px;">
+          <img src="/ev-images/{{this._id}}.jpg" class="card-img-top" alt="Station Image" style="height: 8rem; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+          <div class="card-body">
+            <h5 class="card-title fs-4 fw-bold">{{this.name}}</h5>
+            <p class="card-text fw-bold">{{this.place}}</p>
+            <p class="card-text">
+              <a href="{{this.location}}" class="badge text-bg-primary text-wrap" style="text-decoration: none;">Get location</a>
+            </p>
+            <p class="card-text">
+              <a href="/view-feedback-ev/{{this.userid}}" class="badge text-bg-primary text-wrap" style="text-decoration: none;">Feedback</a>
+            </p>
+            <a href="/view-offer-ev/{{this.userid}}" class="btn btn-secondary">View offer</a>
+            <a href="/view-slot-ev/{{this.userid}}" class="btn btn-secondary">Book now</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

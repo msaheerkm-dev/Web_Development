@@ -1,0 +1,38 @@
+{{#if bookDetails.book}}
+{{else}}
+<section>
+    {{#if bookDetails.length}}
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Userid</th>
+                    <th scope="col">Time no</th>
+                     <th scope="col">Booked</th>
+                    <th scope="col">Control</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each bookDetails}}
+                <tr>
+                    <td>{{this.category}}</td>
+                    <td>{{this.userid}}</td>
+                    <td>{{this.time}}</td>
+                    <td>{{this.book}}</td>
+                    <td>
+                        <a href="/admin/delete-user/{{this._id}}" class="btn btn-danger">reject</a>
+                        <a href="/evmanager/accept-user-booking/{{this.id}}" class="btn btn-success">Accept</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <p class="text-center mt-4 text-danger fs-1 "> Currently no request available.</p>
+    {{/if}}
+</section>
+
+
+{{/if}}

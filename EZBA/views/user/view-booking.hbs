@@ -1,0 +1,30 @@
+{{#if bookDetails.book}}
+<p class="text-center mt-3 text-danger fs-1"> Currently no booking is available.</p>
+{{else}}
+<section>
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Book</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each bookDetails}}
+                <tr>
+                    <td>{{this.category}}</td>
+                    <td>{{this.time}}</td>
+                    <td>
+                        <div class="text-nowrap btn btn-primary" style="width: 8rem;">
+                            Booked
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+{{/if}}

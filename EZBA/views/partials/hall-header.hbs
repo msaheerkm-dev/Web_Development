@@ -1,0 +1,69 @@
+<header class="px-2">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid  rounded" style="background-color: rgb(159, 163, 160);">
+      <a class="navbar-brand fs-2 fw-bolder" href="#">AUDITORIUM MANAGER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fw-bolder px-3 btn-hover" aria-current="page" href="/hallmanager">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bolder px-3 btn-hover" aria-disabled="true" href="/hallmanager/hallmanager-profile">Profile</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bolder px-3 btn-hover" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" data-bs-toggle="dropdown">
+              Auditorium
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/hallmanager/add-hall">Add Auditorium</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/hall-slot">Add slot</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/hall-offer">Add offer</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bolder px-3 btn-hover" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" data-bs-toggle="dropdown">
+              Manage
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/hallmanager/edit-hall">Manage Auditorium</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/view-hall-slot">Manage slot</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/edit-hall-offer">Manage offer</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/hall-view-booking">Manage booking</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bolder px-3 btn-hover" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" data-bs-toggle="dropdown">
+              View
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/hallmanager/view-hall-booking">Booking</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/view-hall-feedback">Feedback</a></li>
+              <li><a class="dropdown-item" href="/hallmanager/view-hall-payment">Payment</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bolder px-3 btn-hover" aria-current="page" href="/hallmanager/bookings">Book request</a>
+          </li>
+           <li class="nav-item px-3">
+            {{#if hallmanager}}
+            <a class="dropdown-item" href="/logout"><button class="btn btn-danger">Logout</button></a>
+            {{else}}
+            <a class="dropdown-item" href="/login"><button class="btn btn-success">Login</button></a>
+            {{/if}}
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,29 @@
+<section>
+<div class="container mt-5">
+    
+<table class="table table-striped">
+  <thead >
+    <tr>
+        <th scope="col">Time</th>
+      <th scope="col">Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">control</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each slots}}
+    <tr>
+      <td>{{this.time}}</td>
+      <td>{{this.turf}}</td>
+      <td>{{this.amount}}</td>
+      <td>
+        <a href="/turfmanager/edit-turf-slot/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/turfmanager/delete-turf-slot/{{this._id}}" class="btn btn-danger">remove</a>
+        </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+</div>
+</section>
+

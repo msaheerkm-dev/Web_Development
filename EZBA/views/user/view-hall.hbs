@@ -1,0 +1,23 @@
+<section>
+  <div class="container mt-5">
+    <div class="row  ">
+      {{#each halls}}
+      <div class="col-md-3 p-3">
+        <div class="card shadow-lg btn-hover" style="width: 16rem; height:22rem">
+          <img src="/hall-images/{{this._id}}.jpg" class="card-img-top" alt="..." style="height:8rem">
+          <div class="card-body">
+            <h5 class="card-title fs-4 fw-bold ">{{this.name}}</h5>
+            <p class="card-text fw-bold ">{{this.place}} , {{this.district}}</p>
+            <p class="card-text "><a href="{{this.location}}" class="badge text-bg-primary text-wrap"
+                style="text-decoration: none;"> Get location</a></p>
+            <p class="card-text "><a href="/view-hall-feedback/{{this.userid}}" class="badge text-bg-primary text-wrap"
+                style="text-decoration: none;"> Feedback</a></p>
+            <a href="/view-hall-offer/{{this.userid}}" class="btn btn-secondary">View offer</a>
+            <a href="/view-hall-slot/{{this.userid}}" class="btn btn-secondary">Book now</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

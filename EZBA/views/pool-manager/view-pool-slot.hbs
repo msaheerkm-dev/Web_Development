@@ -1,0 +1,28 @@
+<section>
+<div class="container mt-5">
+    
+<table class="table table-striped">
+  <thead >
+    <tr>
+        <th scope="col">Time</th>
+      <th scope="col">Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">control</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each slots}}
+    <tr>
+      <td>{{this.time}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.amount}}</td>
+      <td>
+        <a href="/poolmanager/edit-pool-slot/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/poolmanager/delete-pool-slot/{{this._id}}" class="btn btn-danger">remove</a>
+        </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+</div>
+</section>

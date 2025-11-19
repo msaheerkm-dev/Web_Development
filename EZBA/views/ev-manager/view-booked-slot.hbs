@@ -1,0 +1,32 @@
+<section>
+  {{#if evBooking.length}}
+<div class="container mt-5">
+    
+<table class="table table-striped">
+  <thead >
+    <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Extended time</th>
+      <th scope="col">Amount</th>
+      <th scope="col">control</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each evBooking}}
+    <tr>
+      <td>{{this.time}}</td>
+      <td>{{this.extendTime}}</td>
+      <td>{{this.amount}}</td>
+      <td>
+        <a href="/evmanager/edit-ev-booking/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/evmanager/delete-booking/{{this._id}}" class="btn btn-danger">remove</a>
+        </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+</div>
+{{else}}
+    <p class="text-center mt-4 text-danger fs-1 "> Currently no Booking available.</p>
+    {{/if}}
+</section>

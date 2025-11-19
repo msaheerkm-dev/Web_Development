@@ -1,0 +1,39 @@
+<section>
+  <div class="container mt-5">
+    
+    {{#if turfSlot.length}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th scope="col">Turf Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each turfSlot}}
+        <tr>
+          <td>{{this.time}}</td>
+          <td>{{this.turf}}</td>
+          <td>{{this.amount}}</td>
+          <td>
+            <a href="/payment?amount={{this.amount}}&id={{this._id}}&category={{this.category}}&managerid={{this.userid}}&time={{this.time}}" 
+               class="btn btn-primary">Book</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="text-center mt-3 text-danger fs-1"> Currently no slots available.</p>
+    {{/if}}
+
+  </div>
+</section>
+
+<script>
+  window.onload = function () {
+    alert("Please be advised that if you arrive more than five minutes late, your booking slot will be automatically canceled. Additionally, all advance payments are non-refundable. We appreciate your understanding and cooperation.");
+  };
+</script>

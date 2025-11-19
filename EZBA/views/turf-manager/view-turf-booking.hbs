@@ -1,0 +1,29 @@
+<section>
+  {{#if turfBooking.length}}
+<div class="container mt-5">
+<table class="table table-striped">
+  <thead >
+    <tr>
+        <th scope="col">Time</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Control</th>
+  </thead>
+  <tbody>
+    {{#each turfBooking}}
+    <tr>
+      <td>{{this.time}}</td>
+      <td>{{this.amount}}</td>
+      <td>
+        <a href="/turfmanager/edit-turf-Booking/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/turfmanager/delete-turf-booking/{{this._id}}" class="btn btn-danger">remove</a>
+        </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+</div>
+{{else}}
+    <p class="text-center mt-4 text-danger fs-1 "> Currently no Booking available.</p>
+    {{/if}}
+</section>
+

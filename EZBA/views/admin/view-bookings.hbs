@@ -1,0 +1,30 @@
+<section>
+  <div class="container mt-5">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">TIME</th>
+          <th scope="col">AMOUNT</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">BOOK</th>
+          <th scope="col">CONTROL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each bookings}}
+        <tr>
+          <td>{{this.time}}</td>
+          <td>{{this.amount}}</td>
+          <td>{{this.category}}</td>
+          <td>{{this.book}}</td>
+          <td>
+            <a href="/admin/delete-user/{{this._id}}"
+              class="btn btn-danger">Remove</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

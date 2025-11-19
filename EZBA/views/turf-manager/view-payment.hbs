@@ -1,0 +1,33 @@
+
+<section>
+    {{#if payment.length}}
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone no</th>
+                     <th scope="col">Amount</th>
+                    <th scope="col">Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each payment}}
+                <tr>
+                    <td>{{this.userEmail}}</td>
+                    <td>{{this.userno}}</td>
+                    <td>{{this.amount}}</td>
+                    <td>
+                        <div class="text-nowrap btn btn-primary" style="width: 8rem;">
+                            Paid
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <p class="text-center mt-4 text-danger fs-1 "> Currently no request available.</p>
+    {{/if}}
+</section>

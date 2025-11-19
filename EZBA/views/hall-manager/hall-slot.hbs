@@ -1,0 +1,64 @@
+<section>
+  <div class="container px-5 mt-4">
+    <div class="container rounded p-4" style="background-color: rgb(159, 163, 160); width: 70%; margin-top: 130px;">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h2 class="text-center">Add Slot</h2>
+
+          <form id="addSlotForm" action="/hallmanager/hall-slot" method="post" onsubmit="return validateForm()">
+
+            <label class="form-label">Hours</label>
+            <select class="form-select" id="hours" name="hours">
+              <option value="">Select hours</option>
+              <option>24 hours</option>
+              <option>12 hours</option>
+              <option>6 hours</option>
+            </select>
+            <div class="text-danger" id="hoursError"></div>
+
+            <label class="form-label">Time</label>
+            <select class="form-select" id="time" name="time">
+              <option value="">Select time</option>
+              <option>Full day</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Night</option>
+            </select>
+            <div class="text-danger" id="timeError"></div>
+
+            <label class="form-label">Auditorium Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter auditorium name">
+            <div class="text-danger" id="nameError"></div>
+
+            <label class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
+            <div class="text-danger" id="amountError"></div>
+
+            <button type="submit" class="btn btn-success mt-4">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    let fields = ["hours", "time", "name", "amount"];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field);
+        let errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value.trim()) {
+            errorDiv.innerText = field.charAt(0).toUpperCase() + field.slice(1) + " is required.";
+            isValid = false;
+        } else {
+            errorDiv.innerText = "";
+        }
+    });
+
+    return isValid; // Prevents form submission if any field is empty
+}
+</script>

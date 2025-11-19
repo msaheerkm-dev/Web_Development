@@ -1,0 +1,69 @@
+<section>
+  <div class="container px-5 mt-3">
+    <div class="container rounded p-4" style="background-color: rgb(0, 84, 209); width: 70%;">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h2 class="text-center text-white">Manage Pool</h2>
+          <form id="poolForm" action="/poolmanager/edit-pool/{{pool._id}}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            
+            <label class="form-label text-white">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{pool.name}}">
+            <div class="text-danger" id="nameError"></div>
+
+            <label class="form-label text-white">Place</label>
+            <input type="text" class="form-control" id="place" name="place" value="{{pool.place}}">
+            <div class="text-danger" id="placeError"></div>
+
+            <label class="form-label text-white">District</label>
+            <input type="text" class="form-control" id="district" name="district" value="{{pool.district}}">
+            <div class="text-danger" id="districtError"></div>
+
+            <label class="form-label text-white">Amount</label>
+            <input type="text" class="form-control" id="amount" name="amount" value="{{pool.amount}}">
+            <div class="text-danger" id="amountError"></div>
+
+            <label class="form-label text-white">Phone No</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="{{pool.phone}}">
+            <div class="text-danger" id="phoneError"></div>
+
+            <label class="form-label text-white">Location</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{pool.location}}">
+            <div class="text-danger" id="locationError"></div>
+
+            <label class="form-label text-white">Image</label>
+            <img src="/pool-images/{{pool._id}}.jpg" style="width: 100px; height:auto;" class="rounded-circle" id="imgView">
+            <input type="file" class="form-control" name="Image" onchange="viewImage(event)">
+
+            <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    let fields = ["name", "place", "district", "amount", "phone", "location"];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field);
+        let errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value.trim()) {
+            errorDiv.innerText = field.charAt(0).toUpperCase() + field.slice(1) + " is required.";
+            isValid = false;
+        } else {
+            errorDiv.innerText = "";
+        }
+    });
+
+    return isValid;
+}
+
+function viewImage(event) {
+    document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0]);
+}
+</script>

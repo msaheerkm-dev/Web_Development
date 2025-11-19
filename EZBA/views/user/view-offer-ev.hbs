@@ -1,0 +1,16 @@
+<section> 
+    <div class="card text-center container" style="margin-top: 135px; background-color: rgb(131, 213, 209);">
+        {{#each evOffer}}
+  <div class="card-header fs-3 fw-bolder">
+    OFFER
+  </div>
+  <div class="card-body">
+    <h5 class="card-title fw-bolder">{{this.station}}</h5>
+    <p class="card-text fw-bold">Amount/unit:{{this.amount}}</p>
+  </div>
+  <div class="card-footer text-body-secondary fs-3 fw-bolder">
+    {{this.date}}
+  </div>
+  {{/each}}
+</div>
+</section>

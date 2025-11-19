@@ -1,0 +1,47 @@
+<section>
+    <div class="container px-5 mt-4">
+        <div class="container rounded" style="background-color: rgb(44, 187, 46); width: 70%; margin-top: 130px;">
+            <div class="row">
+                <div class="col-md-6 mx-auto p-2">
+                    <h2 class="text-center">Feedback</h2>
+                    <form action="/feedback-turf/{{managerId}}" method="post" onsubmit="return validateFeedbackForm()">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" class="form-control" name="date" id="date">
+
+                        <label for="feedback" class="form-label">Feedback</label>
+                        <textarea class="form-control" name="feedback" id="feedback" placeholder="Enter your feedback" rows="3"></textarea>
+
+                        <button type="submit" class="btn btn-success mt-4">Submit</button>
+                    </form>
+                    <p id="errorMessages" style="color: red; margin-top: 10px;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function validateFeedbackForm() {
+    var date = document.getElementById("date").value.trim();
+    var feedback = document.getElementById("feedback").value.trim();
+    var errorMessages = "";
+
+    // Date Validation (Ensure it is selected)
+    if (date === "") {
+        errorMessages += "Please select a valid date.<br>";
+    }
+
+    // Feedback Validation (At least 5 characters)
+    if (feedback.length < 5) {
+        errorMessages += "Feedback must be at least 5 characters long.<br>";
+    }
+
+    // Display error messages
+    if (errorMessages) {
+        document.getElementById("errorMessages").innerHTML = errorMessages;
+        return false; // Prevent form submission
+    }
+
+    return true; // Allow form submission if all validations pass
+}
+</script>

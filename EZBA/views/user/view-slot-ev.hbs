@@ -1,0 +1,47 @@
+<section>
+    <div class="container mt-5">
+        {{#if evSlot.length}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">Power</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Connector</th>
+                    <th scope="col">Extend Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each evSlot}}
+                <tr>
+                    <td>{{this.time}}</td>
+                    <td>{{this.power}}</td>
+                    <td>{{this.cost}}</td>
+                    <td>{{this.connector}}</td>
+                    <td>
+                        <form action="/payment" method="GET" class="d-flex align-items-center">
+                            <input type="hidden" name="id" value="{{this._id}}">
+                            <input type="hidden" name="amount" value="{{this.cost}}">
+                            <input type="hidden" name="category" value="{{this.category}}">
+                            <input type="hidden" name="managerid" value="{{this.userid}}">
+                            <input type="hidden" name="time" value="{{this.time}}">
+                            <input type="number" name="extendTime" class="form-control w-25 " placeholder="hours"
+                                required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-primary px-4">Book</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+    <p class="text-center mt-3 text-danger fs-1"> Currently no slots available.</p>
+    {{/if}}
+    </div>
+</section>
+
+<script>
+  window.onload = function () {
+    alert("Please be advised that if you arrive more than five minutes late, your booking slot will be automatically canceled. Additionally, all advance payments are non-refundable. We appreciate your understanding and cooperation.");
+  };
+</script>

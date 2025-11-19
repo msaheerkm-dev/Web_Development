@@ -1,0 +1,39 @@
+{{#if data.Approval}}
+{{else}}
+<section>
+  {{#if data.length}}
+  <div class="container mt-5">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone no</th>
+          <th scope="col">Role</th>
+          <th scope="col">Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.Email}}</td>
+          <td>{{this.phone}}</td>
+          <td>{{this.role}}</td>
+          <td>
+            <a href="/admin/delete-user/{{this._id}}" class="btn btn-danger">reject</a>
+            <a href="/admin/accept-user/{{this._id}}" class="btn btn-success">Accept</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{else}}
+    <p class="text-center mt-4 text-danger fs-1 "> Currently no request available.</p>
+    {{/if}}
+</section>
+
+
+{{/if}}

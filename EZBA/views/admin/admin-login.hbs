@@ -1,0 +1,63 @@
+<section>
+  <div class="container px-5 mt-5 " >
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <h2 class="text-center"> Login</h2>
+        <form action="/admin/admin-login" method="POST" onsubmit="return validateForm()">
+          {{#if loginErr}}
+          <p class="error text-danger">{{loginErr}}</p>
+          {{/if}}
+          <label for="" class="form-label">Email</label>
+          <input type="email" class="form-control" name="Email" autocomplete="off"  placeholder="Email">
+
+          <label for="inputPassword4" class="form-label">password</label>
+          <input type="password" class="form-control" name="password" autocomplete="new-password" placeholder="password" id="myInput">
+          <input type="checkbox" onclick="myFunction()">Show Password<br>
+          
+          <a href="/forgot-password" style="text-decoration: none;">Forgot Password?</a><br>
+          <br>
+          <a href="/admin/admin-signup" style="text-decoration: none;">Create new account?</a><br>
+          <button type="submit" class="btn btn-success mt-4">Submit</button>
+        </form>
+        <p id="errorMessages" style="color: red;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+};
+
+function validateForm() {
+      // Get form field values
+      var email = document.getElementById("email").value.trim();
+      var password = document.getElementById("myInput").value.trim();
+      var errorMessages = "";
+
+
+      // Validate email (basic email pattern)
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+      if (email === "" || !emailPattern.test(email)) {
+        errorMessages += "Please enter a valid email address.<br>";
+      }
+
+      // Validate password (minimum 6 characters)
+      if (password.length < 4) {
+        errorMessages += "Password must be at least 5 characters long.<br>";
+      }
+
+      // Display error messages or allow form submission
+      if (errorMessages) {
+        document.getElementById("errorMessages").innerHTML = errorMessages;
+        return false; // Prevent form submission
+      } 
+    };
+</script>

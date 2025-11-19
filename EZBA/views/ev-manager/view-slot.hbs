@@ -1,0 +1,30 @@
+<section>
+    <div class="container mt-5">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">Power</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Connector</th>
+                    <th scope="col">Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each slots}}
+                <tr>
+                    <td>{{this.time}}</td>
+                    <td>{{this.power}}</td>
+                    <td>{{this.cost}}</td>
+                    <td>{{this.connector}}</td>
+                    <td>{{this.availability}}</td>
+                    <td>
+                        <a href="/evmanager/edit-ev-slot/{{this._id}}" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+<div class="container px-2 mt-2">
+<a href="/feedback-hall/{{managerId}}"><button type="button" class="btn btn-primary btn-lg btn-block" >Add feedback</button></a>
+</div>
+{{#each feedbacks}}
+<div class="container px-2 mt-2">
+<div class="card bg-success ">
+  <div class="card-header text-white ">
+    {{this.date}}
+  </div>
+  <div class="card-body">
+    <p class="card-text fw-bold fs-5 text-white">{{this.feedback}}</p>
+  </div>
+  {{/each}}
+</div>
+</div>

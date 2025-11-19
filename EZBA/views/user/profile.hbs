@@ -1,0 +1,93 @@
+<section>
+    <div class="container px-5 mt-3 ">
+        <div class="container rounded " style="background-color: rgb(91, 205, 217);width: 70%;">
+            <div class="row">
+                <div class="col-md-6 mx-auto p-2 ">
+                    <h2 class="text-center">Profile</h2>
+                    <form action="/profile" method="post" onsubmit="return validateForm()">
+                        <label for="validationDefault01" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" value="{{User.name}}" id="name">
+                        <label for="inputAddress" class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email" value="{{User.Email}}" id="email">
+                        <label for="validationDefault01" class="form-label">Phone no</label>
+                        <input type="text" class="form-control" name="phone" value="{{User.phone}}" id="phone">
+                        <label for="validationDefault01" class="form-label">Place</label>
+                        <input type="text" class="form-control" name="place" placeholder="place" value="{{User.place}}" id="place">
+                        <label for="validationDefault01" class="form-label">District</label>
+                        <input type="text" class="form-control" name="district" placeholder="district"
+                            value="{{User.district}}" id="district">
+                        <label for="validationDefault01" class="form-label">Country</label>
+                        <input type="text" class="form-control" name="country" placeholder="country"
+                            value="{{User.country}}" id="country">
+                        <label for="inputPassword" class="form-label">password</label>
+                        <input type="password" class="form-control" name="password" placeholder="password" value="" id="password">
+                        <input type="checkbox" onclick="myFunction()">Show Password<br>
+                        <button type="submit" class="btn btn-success mt-4">Submit</button>
+                    </form>
+                    <p id="errorMessages" style="color: red;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+};
+
+function validateForm() {
+    var email = document.getElementById("email").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var place = document.getElementById("place").value.trim();
+    var district = document.getElementById("district").value.trim();
+    var country = document.getElementById("country").value.trim();
+    var password = document.getElementById("password").value.trim();
+    var errorMessages = "";
+
+    // Email Validation
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+    if (email === "" || !emailPattern.test(email)) {
+        errorMessages += "Please enter a valid email address.<br>";
+    }
+
+    // Password Validation (Minimum 6 characters)
+    if (password.length < 4) {
+        errorMessages += "Password must be at least 6 characters long.<br>";
+    }
+
+    // Phone Validation (Ensures only numbers, 10 digits)
+    var phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        errorMessages += "Enter a valid 10-digit phone number.<br>";
+    }
+
+    // Place Validation
+    if (place === "") {
+        errorMessages += "Enter a valid place.<br>";
+    }
+
+    // District Validation
+    if (district === "") {
+        errorMessages += "Enter a valid district.<br>";
+    }
+
+    // Country Validation
+    if (country === "") {
+        errorMessages += "Enter a valid country.<br>";
+    }
+
+    // Display Error Messages
+    if (errorMessages) {
+        document.getElementById("errorMessages").innerHTML = errorMessages;
+        return false; // Prevent form submission
+    }
+
+    return true; // Allow form submission if all validations pass
+};
+</script>

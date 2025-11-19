@@ -1,0 +1,66 @@
+<section>
+    <div class="container px-5 mt-4">
+        <div class="container rounded p-4" style="background-color: rgb(75, 254, 245); width: 70%; margin-top: 100px;">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h2 class="text-center">Edit EV Slot</h2>
+                    <form id="slotForm" action="/evmanager/edit-ev-slot/{{evSlot._id}}" method="post" onsubmit="return validateForm()">
+                        
+                        <label class="form-label">Time</label>
+                        <input type="text" class="form-control" id="time" name="time" value="{{evSlot.time}}">
+                        <div class="text-danger" id="timeError"></div>
+
+                        <label class="form-label">Charging Power</label>
+                        <input type="text" class="form-control" id="power" name="power" value="{{evSlot.power}}">
+                        <div class="text-danger" id="powerError"></div>
+
+                        <label class="form-label">Charging Cost</label>
+                        <input type="text" class="form-control" id="cost" name="cost" value="{{evSlot.cost}}">
+                        <div class="text-danger" id="costError"></div>
+
+                        <label class="form-label">Connector Type</label>
+                        <select class="form-select" id="connector" name="connector">
+                            <option value="">Select connector type</option>
+                            <option>Type 1</option>
+                            <option>Type 2</option>
+                            <option>CCS</option>
+                            <option>CHAdeMO</option>
+                        </select>
+                        <div class="text-danger" id="connectorError"></div>
+
+                        <label class="form-label">Availability</label>
+                        <select class="form-select" id="availability" name="availability">
+                            <option value="">Select availability</option>
+                            <option>Available</option>
+                            <option>Not Available</option>
+                        </select>
+                        <div class="text-danger" id="availabilityError"></div>
+
+                        <button type="submit" class="btn btn-success mt-4">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    let fields = ["time", "power", "cost", "connector", "availability"];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field);
+        let errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value.trim()) {
+            errorDiv.innerText = field.charAt(0).toUpperCase() + field.slice(1) + " is required.";
+            isValid = false;
+        } else {
+            errorDiv.innerText = "";
+        }
+    });
+
+    return isValid; // Prevent form submission if any field is empty
+}
+</script>

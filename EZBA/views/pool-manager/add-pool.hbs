@@ -1,0 +1,65 @@
+<section>
+  <div class="container px-5 mt-3">
+    <div class="container rounded p-4" style="background-color: rgb(0, 84, 209); width: 70%;">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h2 class="text-center text-white">Add Pool</h2>
+          <form id="poolForm" action="/poolmanager/add-pool" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+            <label class="form-label text-white">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="name">
+            <div class="text-danger" id="nameError"></div>
+
+            <label class="form-label text-white">Place</label>
+            <input type="text" class="form-control" id="place" name="place" placeholder="place">
+            <div class="text-danger" id="placeError"></div>
+
+            <label class="form-label text-white">District</label>
+            <input type="text" class="form-control" id="district" name="district" placeholder="district">
+            <div class="text-danger" id="districtError"></div>
+
+            <label class="form-label text-white">Amount</label>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="amount">
+            <div class="text-danger" id="amountError"></div>
+
+            <label class="form-label text-white">Phone no</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="phone no">
+            <div class="text-danger" id="phoneError"></div>
+
+            <label class="form-label text-white">Location</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Add location here">
+            <div class="text-danger" id="locationError"></div>
+
+            <label class="form-label text-white">Image</label>
+            <input type="file" class="form-control" id="image" name="Image">
+            <div class="text-danger" id="imageError"></div>
+
+            <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    let fields = ["name", "place", "district", "amount", "phone", "location", "image"];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field);
+        let errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value.trim()) {
+            errorDiv.innerText = field.charAt(0).toUpperCase() + field.slice(1) + " is required.";
+            isValid = false;
+        } else {
+            errorDiv.innerText = "";
+        }
+    });
+
+    return isValid;
+}
+</script>

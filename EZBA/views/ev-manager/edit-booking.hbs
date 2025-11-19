@@ -1,0 +1,49 @@
+<section>
+  <div class="container px-5 mt-4">
+    <div class="container rounded p-4" style="background-color: rgb(59, 68, 61); width: 70%; margin-top: 130px;">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h2 class="text-center text-white">Edit Booking</h2>
+          <form id="addSlotForm" action="evmanager/edit-ev-booking/{{slotBooking._id}}" method="post" onsubmit="return validateForm()">
+
+            <label class="form-label text-white">Time</label>
+            <input type="text" class="form-control" id="time" name="time" value="{{slotBooking.time}}">
+            <div class="text-danger" id="timeError"></div>
+
+            <label class="form-label text-white">Extended Time</label>
+            <input type="text" class="form-control" id="extend" name="extend" value="{{slotBooking.extendTime}}">
+            <div class="text-danger" id="timeError"></div>
+
+            <label class="form-label text-white">Amount</label>
+            <input type="text" class="form-control" id="amount" name="amount" value="{{slotBooking.amount}}">
+            <div class="text-danger" id="amountError"></div>
+
+            <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    let fields = ["time", "turf", "amount"];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field);
+        let errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value.trim()) {
+            errorDiv.innerText = field.charAt(0).toUpperCase() + field.slice(1) + " is required.";
+            isValid = false;
+        } else {
+            errorDiv.innerText = "";
+        }
+    });
+
+    return isValid;
+}
+</script>
